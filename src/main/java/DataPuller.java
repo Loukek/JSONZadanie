@@ -24,12 +24,10 @@ public class DataPuller {
             String inline = "";
             Scanner scanner = new Scanner(url.openStream());
 
-            //Write all the JSON data into a string using a scanner
             while (scanner.hasNext()) {
                 inline += scanner.nextLine();
             }
 
-            //Close the scanner
             scanner.close();
             JsonArray cos = new JsonParser().parse(String.valueOf(inline)).getAsJsonArray();
             String name = cos.get(0).getAsJsonObject().get("name").getAsString();
