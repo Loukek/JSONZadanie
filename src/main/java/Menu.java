@@ -15,20 +15,20 @@ public class Menu {
 
         for(int i = 0; i < countries; i++){
             Scanner input1 = new Scanner(System.in);
-            System.out.println("Wpisz nazwę kraju numer " + (i+1) + ". (Nazwę kraju wpisz po angielsku z małych, lub dużych liter, lub nazwę skrótową np. USA");
+            System.out.println("\nWpisz nazwę kraju numer " + (i+1) + ". (Nazwę kraju wpisz po angielsku z małych, lub dużych liter, lub nazwę skrótową np. USA");
             String countryName = input1.nextLine();
             String restURL = "https://restcountries.eu/rest/v2/name/" + countryName.toString();
 
             List<CountryData> kraj = DataPuller.createJsonList(restURL);
-            System.out.println(kraj);
+            /*System.out.println(kraj);*/
             countriesList.add(kraj.toString());
-            System.out.println(countriesList);
+           /* System.out.println(countriesList);*/
 
 
         }
 
         Scanner input2 = new Scanner(System.in);
-        System.out.println("Wpisz jak chcesz nazwać swój plik: ");
+        System.out.println("\nWpisz jak chcesz nazwać swój plik: (Bez .json) ");
         String file = input2.nextLine();
         JSONFileMaker.saveJsonFile(countriesList, file);
     }
